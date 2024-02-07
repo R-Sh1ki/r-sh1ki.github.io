@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://r-sh1ki.github.io/sitemap.xml
