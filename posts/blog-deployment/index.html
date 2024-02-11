@@ -24,17 +24,17 @@
 </span></span><span class=line><span class=cl><span class=c1># If Hugo is installed correctly, it will output:</span>
 </span></span><span class=line><span class=cl><span class=c1># hugo v0.122.0-b9a03bd59d5f71a529acb3e33f995e0ef332b3aa+extended windows/amd64 BuildDate=2024-01-26T15:54:24Z VendorInfo=gohugoio</span>
 </span></span></code></pre></div><h3 id=create-a-new-project class="relative group">Create a new project <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#create-a-new-project aria-label=Anchor>#</a></span></h3><p>I prefer to keep the source code separate from the generated files of the static site so that I can deploy my blog without leaking the source code. According to this requirement, you can create a private GitHub repository to host the Hugo project. After cloning the repository above, you can initialize a Hugo project by executing the following command in the root directory:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Hugo new site . --force
-</span></span></code></pre></div><p>The directory structure of the project is as follows. I only cover how to deploy a website quickly here, but if possible, I&rsquo;ll devote serval blog posts to describe the details of Hugo&rsquo;s configuration (You can also find the documentation from the Hugo official website).</p><pre tabindex=0><code>.
-├── archetypes 
-├── assets 
-├── content
-├── data
-├── i18n 
-├── layouts
-├── static
-├── themes 
-└── hugo.toml 
-</code></pre><h3 id=configure-hugo-theme class="relative group">Configure Hugo theme <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#configure-hugo-theme aria-label=Anchor>#</a></span></h3><p>The most essential part of building a personal blog is, of course, choosing a favorite theme. You can browse the Hugo website and select a theme you like. As you can see in the footer of the web page, my site applies the <code>Congo</code> theme. By executing the following command, you can install <code>Congo</code> in the <code>themes</code> folder (For other themes, refer to their documentation).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># cd to the root directory first.</span>
+</span></span></code></pre></div><p>The directory structure of the project is as follows. I only cover how to deploy a website quickly here, but if possible, I&rsquo;ll devote serval blog posts to describe the details of Hugo&rsquo;s configuration (You can also find the documentation from the Hugo official website).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>.
+</span></span><span class=line><span class=cl>├── archetypes 
+</span></span><span class=line><span class=cl>├── assets 
+</span></span><span class=line><span class=cl>├── content
+</span></span><span class=line><span class=cl>├── data
+</span></span><span class=line><span class=cl>├── i18n 
+</span></span><span class=line><span class=cl>├── layouts
+</span></span><span class=line><span class=cl>├── static
+</span></span><span class=line><span class=cl>├── themes 
+</span></span><span class=line><span class=cl>└── hugo.toml 
+</span></span></code></pre></div><h3 id=configure-hugo-theme class="relative group">Configure Hugo theme <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style=text-decoration-line:none!important href=#configure-hugo-theme aria-label=Anchor>#</a></span></h3><p>The most essential part of building a personal blog is, of course, choosing a favorite theme. You can browse the Hugo website and select a theme you like. As you can see in the footer of the web page, my site applies the <code>Congo</code> theme. By executing the following command, you can install <code>Congo</code> in the <code>themes</code> folder (For other themes, refer to their documentation).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># cd to the root directory first.</span>
 </span></span><span class=line><span class=cl>git submodule add -b stable https://github.com/jpanther/congo.git themes/congo
 </span></span></code></pre></div><p>Most themes provide a sample site (in the <code>exampleSite</code> folder) that users can deploy quickly. You can replace the contents of the root directory with the contents of the <code>exampleSite</code> folder. Note that you need to set the <code>baseURL</code> parameter to your blog URL (<code>https://&lt;username>.github.io/</code>), which I&rsquo;ll introduce in the GitHub Pages section. You can also easily add an article using the Hugo command as follows.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># For example: hugo new content/test.md</span>
 </span></span><span class=line><span class=cl>hugo new <span class=o>[</span>Markdown File Path<span class=o>]</span>
